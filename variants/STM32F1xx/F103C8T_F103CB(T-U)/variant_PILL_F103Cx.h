@@ -123,6 +123,10 @@
 
 // Timer Definitions
 // Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
+#ifndef TIMER_SERIAL
+  // Reserve TIM1 for SoftwareSerial. FullVision motor PWM uses TIM2-TIM4.
+  #define TIMER_SERIAL           TIM1
+#endif
 #ifndef TIMER_TONE
   #define TIMER_TONE            TIM3
 #endif
