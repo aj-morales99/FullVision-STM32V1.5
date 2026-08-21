@@ -5,7 +5,7 @@
 # https://arduino.github.io/arduino-cli/latest/platform-specification/
 
 name=FullVision STM32 boards (STM32duino 2.12.0, TIM1 SoftwareSerial)
-version=2.12.0
+version=1.5.0
 
 
 # Define variables used multiple times in platform file

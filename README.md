@@ -1,8 +1,8 @@
 # FullVision STM32 V1.5
 
 This branch is a focused STM32F103C8T6 derivative of STM32duino 2.12.0. See the
-[FullVision installation, settings, test status, and attribution](FULLVISION.md)
-before using a test release.
+[FullVision installation, settings, version basis, and attribution](FULLVISION.md)
+before installing the board package.
 
 ---
 

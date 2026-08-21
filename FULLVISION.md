@@ -1,4 +1,4 @@
-# FullVision STM32 V1.5 test core
+# FullVision STM32 V1.5
 
 FullVision STM32 V1.5 is a hardware-specific derivative of the
 [STM32duino Arduino_Core_STM32](https://github.com/stm32duino/Arduino_Core_STM32)
@@ -6,9 +6,9 @@ FullVision STM32 V1.5 is a hardware-specific derivative of the
 and source code while providing a focused profile for the STM32F103C8T6 Blue
 Pill used by the FullVision board.
 
-This remains a hardware-test release. Validate compilation, upload, native USB
-serial, Bluetooth SoftwareSerial, receiver input, and motor PWM on the physical
-board before distributing it to clients as a stable release.
+FullVision installs as the independent Arduino package `FullVision:stm32`. It
+does not replace or downgrade `STMicroelectronics:stm32`, so users may keep the
+latest official STM32 core installed beside FullVision.
 
 ## FullVision changes
 
@@ -23,17 +23,16 @@ board before distributing it to clients as a stable release.
 
 ## Windows installation
 
-1. Download the complete release ZIP from GitHub Releases. Do not use GitHub's
-   automatically generated **Source code (zip)** download.
-2. Extract the ZIP completely.
-3. Close Arduino IDE.
-4. Run `install-windows.bat` from the extracted folder.
-5. Reopen Arduino IDE and select **FullVision-STM32 V1.5**.
+1. Download `install-windows.bat` from the GitHub release.
+2. Close Arduino IDE.
+3. Run the installer and follow any prerequisite prompts.
+4. Reopen Arduino IDE and select **FullVision-STM32 V1.5**.
 
-The installer checks Arduino IDE 2, Arduino CLI, STM32duino 2.12.0 and its tools,
-and STM32CubeProgrammer. ST requires each user to download and accept the
-STM32CubeProgrammer license themselves, so the installer opens ST's official
-page when that application is missing.
+The installer checks Arduino IDE 2, Arduino CLI, the exact tools required by
+the STM32duino 2.12.0 base, and STM32CubeProgrammer. The tools are installed as
+dependencies of `FullVision:stm32`; the official STM32 core version is left
+unchanged. ST requires each user to obtain and accept the STM32CubeProgrammer
+license themselves, so the installer opens ST's official page when needed.
 
 The single board-part, upload-method, and USB-speed choices are fixed but may be
 hidden by Arduino IDE. Menus with meaningful alternatives remain visible. Keep
@@ -45,8 +44,8 @@ these defaults for the FullVision board:
 - Debug symbols and core logs: **None**
 - C Runtime Library: **Newlib Nano (default)**
 
-Use `restore-official-windows.bat` to restore the official STM32duino 2.12.0 core
-backup made by the installer.
+Use `restore-official-windows.bat` to uninstall only `FullVision:stm32`. It does
+not modify the official STMicroelectronics STM32 package.
 
 ## License and attribution
 

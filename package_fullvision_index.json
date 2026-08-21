@@ -1,0 +1,68 @@
+{
+  "packages": [
+    {
+      "name": "FullVision",
+      "maintainer": "FullVision / Twentynine Robotics",
+      "websiteURL": "https://github.com/aj-morales99/FullVision-STM32V1.5",
+      "email": "aj-morales99@users.noreply.github.com",
+      "help": {
+        "online": "https://github.com/aj-morales99/FullVision-STM32V1.5/blob/v1.5.0/FULLVISION.md"
+      },
+      "platforms": [
+        {
+          "name": "FullVision STM32 V1.5",
+          "architecture": "stm32",
+          "version": "1.5.0",
+          "category": "Contributed",
+          "url": "https://github.com/aj-morales99/FullVision-STM32V1.5/releases/download/v1.5.0/FullVision-STM32-1.5.0.tar.bz2",
+          "archiveFileName": "FullVision-STM32-1.5.0.tar.bz2",
+          "checksum": "SHA-256:de3bb5ee07246c4b7bf5e8ec163e60deb98d30f6202b6ca7f83e82fff2729845",
+          "size": "55526526",
+          "boards": [
+            {
+              "name": "FullVision-STM32 V1.5 (STM32F103C8T6)"
+            }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "STMicroelectronics",
+              "name": "xpack-arm-none-eabi-gcc",
+              "version": "14.2.1-1.1"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "xpack-openocd",
+              "version": "0.12.0-6"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "STM32Tools",
+              "version": "2.4.0"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "CMSIS",
+              "version": "6.2.0"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "CMSIS_DSP",
+              "version": "1.16.2"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "CMSIS_NN",
+              "version": "7.0.0"
+            },
+            {
+              "packager": "STMicroelectronics",
+              "name": "STM32_SVD",
+              "version": "1.20.0"
+            }
+          ]
+        }
+      ],
+      "tools": []
+    }
+  ]
+}
