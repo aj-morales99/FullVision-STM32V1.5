@@ -77,6 +77,81 @@ install `FullVision:stm32@1.5.0`, and check for STM32CubeProgrammer. If
 STM32CubeProgrammer is missing, the installer directs the user to ST's official
 download because ST requires each user to accept its license.
 
+## Obtaining and installing STM32CubeProgrammer
+
+STM32CubeProgrammer is STMicroelectronics' programming application. FullVision
+uses its command-line component to upload a compiled sketch through the STM32
+UART bootloader. It is free to download, but it is proprietary ST software and
+is therefore not bundled or redistributed by FullVision.
+
+### Download from STMicroelectronics
+
+1. Open the official
+   [STM32CubeProgrammer download page](https://www.st.com/en/development-tools/stm32cubeprog.html).
+2. Find the **Get Software** or installer section and choose the current
+   **Windows 64-bit** package. Use the 32-bit package only on a 32-bit Windows
+   installation.
+3. Sign in to a free **myST** account, or create one, if the ST website asks.
+4. Complete any required download details and accept ST's software-license and
+   export-control terms.
+5. Download the STM32CubeProgrammer ZIP package when ST makes it available.
+
+The wording and current version number on ST's website can change. Always use
+the latest Windows installer offered on the official page; FullVision does not
+require the STM32CubeProgrammer version number to match STM32duino 2.12.0.
+
+### Install on Windows
+
+1. Open the downloaded ZIP and extract all of its contents to a normal folder.
+   Do not run the installer from inside the ZIP preview.
+2. Close Arduino IDE.
+3. Run the included `SetupSTM32CubeProgrammer-...exe` installer. Approve the
+   Windows administrator prompt if one appears.
+4. Accept ST's license and keep the default installation location unless there
+   is a specific reason to change it.
+5. Make sure the main STM32CubeProgrammer application and its command-line
+   tools are installed. The optional Trusted Package Creator is not required
+   for normal FullVision uploads.
+6. Finish the installer. Restart Windows only if the installer requests it.
+
+ST's complete platform-specific procedure is available in the currently
+published
+[official STM32CubeProgrammer installation guide](https://dev.st.com/stm32cube-docs/prog/2.23.0/en/docs/markup/CubeProg_How_To_Start/CubeProg_Installation.html).
+
+### Confirm that FullVision can find it
+
+The normal 64-bit Windows installation contains this file:
+
+```text
+C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin\STM32_Programmer_CLI.exe
+```
+
+After installation:
+
+1. Run `install-windows.bat` again.
+2. Confirm that it prints **Found STM32CubeProgrammer** followed by a path.
+3. Reopen Arduino IDE and select the FullVision board and the controller's COM
+   port.
+
+If the installer still cannot find STM32CubeProgrammer, confirm that
+`STM32_Programmer_CLI.exe` exists in the folder above. Reinstall using ST's
+default location if it is missing. If it was intentionally installed elsewhere,
+add its `bin` folder to the Windows `PATH`, close the existing Command Prompt,
+and rerun the FullVision installer from a new window.
+
+### CH340G and driver clarification
+
+The FullVision board uploads through a CH340G-style USB-to-serial connection.
+Open **Windows Device Manager > Ports (COM & LPT)** and confirm that connecting
+the board creates a COM port. If no port appears, resolve the CH340G driver,
+USB-cable, USB-port, or board-power issue before trying Arduino again.
+
+The STM32CubeProgrammer **USB DFU** and **ST-LINK** drivers are not required for
+this CH340G/UART upload method. They are only needed when using their respective
+USB DFU or ST-LINK interfaces. The Arduino **Native CDC** setting controls the
+sketch's runtime `Serial` interface; it does not replace the CH340G bootloader
+COM port used during programming.
+
 ## Manual Boards Manager installation
 
 Advanced users can add these two URLs to **File > Preferences > Additional
