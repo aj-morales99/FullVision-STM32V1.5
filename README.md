@@ -1,3 +1,11 @@
+# FullVision STM32 V1.5
+
+This branch is a focused STM32F103C8T6 derivative of STM32duino 2.12.0. See the
+[FullVision installation, settings, test status, and attribution](FULLVISION.md)
+before using a test release.
+
+---
+
 # Arduino core support for STM32 based boards
 [![forums](https://img.shields.io/badge/join-the%20forums-blue.svg)](https://www.stm32duino.com/)
 [![wiki](https://img.shields.io/badge/browse-the%20wiki-orange.svg)](https://github.com/stm32duino/Arduino_Core_STM32/wiki)

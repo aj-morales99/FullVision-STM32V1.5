@@ -4,7 +4,7 @@
 # For more info:
 # https://arduino.github.io/arduino-cli/latest/platform-specification/
 
-name=STM32 boards groups (Board to be selected from Tools submenu 'Board part number')
+name=FullVision STM32 boards (STM32duino 2.12.0, TIM1 SoftwareSerial)
 version=2.12.0
 
 

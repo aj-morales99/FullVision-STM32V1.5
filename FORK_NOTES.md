@@ -31,9 +31,10 @@ FullVision sketch that uses `SoftwareSerial`.
 
 ## Supported target for the first release
 
-- STM32F103C8Tx (including the common STM32F103C8T8 package)
-- Blue Pill and Black Pill board layouts
+- STM32F103C8T6 with the guaranteed 64 KB flash limit
+- FullVision Blue Pill layout
 
-Other STM32 families and F103 variants are intentionally retained until the
-F103C8Tx build and hardware smoke tests are complete. Removing source files
-before that validation can break Arduino board-package dependencies.
+The release is based on the upstream STM32duino 2.12.0 tag because that is the
+version already proven with the FullVision application. Other board selections
+are removed from `boards.txt`, while dependency source files remain intact so
+the Arduino platform continues to compile correctly.
