@@ -271,6 +271,7 @@ while (Bluetooth.available()) {
 ## Releases and documentation
 
 - [Download FullVision STM32 V1.5.0](https://github.com/aj-morales99/FullVision-STM32V1.5/releases/tag/v1.5.0)
+- [macOS installation guide](MACOS_INSTALL.md)
 - [FullVision technical notes](FULLVISION.md)
 - [Upstream STM32duino project](https://github.com/stm32duino/Arduino_Core_STM32)
 - [Upstream STM32duino documentation](https://github.com/stm32duino/Arduino_Core_STM32/wiki)
