@@ -77,23 +77,15 @@ install `FullVision:stm32@1.5.0`, and check for STM32CubeProgrammer. If
 STM32CubeProgrammer is missing, the installer directs the user to ST's official
 download because ST requires each user to accept its license.
 
-## Recommended macOS installation
+## macOS validation status
 
-1. Open the
-   [latest FullVision release](https://github.com/aj-morales99/FullVision-STM32V1.5/releases/latest).
-2. Download `FullVision-macOS-1.5.0-installer.zip` and extract it.
-3. Close Arduino IDE.
-4. Double-click `install-macos.command` and follow its prompts.
-5. If macOS blocks the first launch, Control-click the file, choose **Open**,
-   and confirm **Open**.
-6. Reopen Arduino IDE and select
-   **FullVision-STM32 V1.5 (STM32duino 2.12.0)**.
-7. Select the serial port for the controller and upload the sketch.
+The macOS installer is temporarily withheld from the stable release while the
+STM32CubeProgrammer 2.23 path compatibility update completes physical-board
+upload testing. Apple Silicon compilation has passed, but a real CH340G/UART
+upload is still required before this option is released to other makers.
 
-The macOS installer supports Apple Silicon and 64-bit Intel Macs. It checks
-Arduino IDE 2, installs a private copy of the official Arduino CLI when no CLI
-is available, installs `FullVision:stm32@1.5.0`, and checks the default macOS
-location for STM32CubeProgrammer. It does not use Homebrew or require `sudo`.
+The stable Windows installer and Boards Manager package remain available. Do
+not distribute the macOS `.command` files from the source tree yet.
 
 ## Obtaining and installing STM32CubeProgrammer
 
@@ -271,7 +263,6 @@ while (Bluetooth.available()) {
 ## Releases and documentation
 
 - [Download FullVision STM32 V1.5.0](https://github.com/aj-morales99/FullVision-STM32V1.5/releases/tag/v1.5.0)
-- [macOS installation guide](MACOS_INSTALL.md)
 - [FullVision technical notes](FULLVISION.md)
 - [Upstream STM32duino project](https://github.com/stm32duino/Arduino_Core_STM32)
 - [Upstream STM32duino documentation](https://github.com/stm32duino/Arduino_Core_STM32/wiki)

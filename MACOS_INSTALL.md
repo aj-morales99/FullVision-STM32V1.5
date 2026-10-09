@@ -1,5 +1,9 @@
 # FullVision STM32 V1.5 — macOS setup
 
+> [!WARNING]
+> Validation build only. Do not distribute this installer until a physical
+> CH340G/UART upload has passed with STM32CubeProgrammer 2.23.
+
 ## Install
 
 1. Extract `FullVision-macOS-1.5.0-installer.zip`.
