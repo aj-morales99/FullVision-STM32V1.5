@@ -2,7 +2,7 @@
 
 ## Install
 
-1. Extract `FullVision-macOS-1.5.0.zip`.
+1. Extract `FullVision-macOS-1.5.0-installer.zip`.
 2. Close Arduino IDE completely.
 3. Double-click `install-macos.command`.
 4. Follow the Terminal prompts for Arduino IDE 2 and STM32CubeProgrammer if

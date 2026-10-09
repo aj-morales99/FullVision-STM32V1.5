@@ -36,7 +36,8 @@ license themselves, so the installer opens ST's official page when needed.
 
 ## macOS installation
 
-1. Download `FullVision-macOS-1.5.0.zip` from the GitHub release and extract it.
+1. Download `FullVision-macOS-1.5.0-installer.zip` from the GitHub release and
+   extract it.
 2. Close Arduino IDE.
 3. Double-click `install-macos.command` and follow any prerequisite prompts.
 4. Reopen Arduino IDE and select **FullVision-STM32 V1.5**.
