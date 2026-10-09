@@ -34,6 +34,20 @@ dependencies of `FullVision:stm32`; the official STM32 core version is left
 unchanged. ST requires each user to obtain and accept the STM32CubeProgrammer
 license themselves, so the installer opens ST's official page when needed.
 
+## macOS installation
+
+1. Download `FullVision-macOS-1.5.0.zip` from the GitHub release and extract it.
+2. Close Arduino IDE.
+3. Double-click `install-macos.command` and follow any prerequisite prompts.
+4. Reopen Arduino IDE and select **FullVision-STM32 V1.5**.
+
+The macOS installer supports Apple Silicon and 64-bit Intel Macs. It installs
+the same independent `FullVision:stm32` package and official 2.12.0 tool
+dependencies used on Windows. If Arduino CLI is missing, the installer obtains
+the correct official Arduino CLI archive for the Mac architecture and verifies
+its SHA-256 checksum. STM32CubeProgrammer must still be obtained directly from
+ST so the user can accept ST's license.
+
 The single board-part, upload-method, and USB-speed choices are fixed but may be
 hidden by Arduino IDE. Menus with meaningful alternatives remain visible. Keep
 these defaults for the FullVision board:
@@ -44,8 +58,10 @@ these defaults for the FullVision board:
 - Debug symbols and core logs: **None**
 - C Runtime Library: **Newlib Nano (default)**
 
-Use `restore-official-windows.bat` to uninstall only `FullVision:stm32`. It does
-not modify the official STMicroelectronics STM32 package.
+Use `restore-official-windows.bat` on Windows or
+`remove-fullvision-macos.command` on macOS to uninstall only
+`FullVision:stm32`. Neither modifies the official STMicroelectronics STM32
+package.
 
 ## License and attribution
 

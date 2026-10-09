@@ -77,6 +77,24 @@ install `FullVision:stm32@1.5.0`, and check for STM32CubeProgrammer. If
 STM32CubeProgrammer is missing, the installer directs the user to ST's official
 download because ST requires each user to accept its license.
 
+## Recommended macOS installation
+
+1. Open the
+   [latest FullVision release](https://github.com/aj-morales99/FullVision-STM32V1.5/releases/latest).
+2. Download `FullVision-macOS-1.5.0.zip` and extract it.
+3. Close Arduino IDE.
+4. Double-click `install-macos.command` and follow its prompts.
+5. If macOS blocks the first launch, Control-click the file, choose **Open**,
+   and confirm **Open**.
+6. Reopen Arduino IDE and select
+   **FullVision-STM32 V1.5 (STM32duino 2.12.0)**.
+7. Select the serial port for the controller and upload the sketch.
+
+The macOS installer supports Apple Silicon and 64-bit Intel Macs. It checks
+Arduino IDE 2, installs a private copy of the official Arduino CLI when no CLI
+is available, installs `FullVision:stm32@1.5.0`, and checks the default macOS
+location for STM32CubeProgrammer. It does not use Homebrew or require `sudo`.
+
 ## Obtaining and installing STM32CubeProgrammer
 
 STM32CubeProgrammer is STMicroelectronics' programming application. FullVision
@@ -88,17 +106,18 @@ is therefore not bundled or redistributed by FullVision.
 
 1. Open the official
    [STM32CubeProgrammer download page](https://www.st.com/en/development-tools/stm32cubeprog.html).
-2. Find the **Get Software** or installer section and choose the current
-   **Windows 64-bit** package. Use the 32-bit package only on a 32-bit Windows
-   installation.
+2. Find the **Get Software** or installer section and choose the current package
+   for your operating system. On Windows, normally choose **Windows 64-bit**.
+   On a Mac, choose ST's macOS package for Apple Silicon/ARM64 or Intel when ST
+   presents separate downloads.
 3. Sign in to a free **myST** account, or create one, if the ST website asks.
 4. Complete any required download details and accept ST's software-license and
    export-control terms.
 5. Download the STM32CubeProgrammer ZIP package when ST makes it available.
 
 The wording and current version number on ST's website can change. Always use
-the latest Windows installer offered on the official page; FullVision does not
-require the STM32CubeProgrammer version number to match STM32duino 2.12.0.
+the latest compatible installer offered on the official page; FullVision does
+not require the STM32CubeProgrammer version number to match STM32duino 2.12.0.
 
 ### Install on Windows
 
@@ -114,11 +133,26 @@ require the STM32CubeProgrammer version number to match STM32duino 2.12.0.
    for normal FullVision uploads.
 6. Finish the installer. Restart Windows only if the installer requests it.
 
+### Install on macOS
+
+1. Extract the complete STM32CubeProgrammer ZIP package downloaded from ST.
+2. Close Arduino IDE.
+3. Double-click the included `SetupSTM32CubeProgrammer-...app` installer.
+4. Approve the macOS administrator prompt, accept ST's license, and keep the
+   default installation location.
+5. Install the main application and command-line tools. The optional Trusted
+   Package Creator is not required for normal FullVision uploads.
+6. If double-clicking the installer fails, follow ST's documented workaround:
+   Control-click the installer, choose **Show Package Contents**, open
+   `Contents/MacOS`, and launch the installer executable located there.
+7. Finish the installer, then return to `install-macos.command` and press
+   Return so it can check the installation.
+
 ST's complete platform-specific procedure is available in the currently
 published
 [official STM32CubeProgrammer installation guide](https://dev.st.com/stm32cube-docs/prog/2.23.0/en/docs/markup/CubeProg_How_To_Start/CubeProg_Installation.html).
 
-### Confirm that FullVision can find it
+### Confirm that Windows can find it
 
 The normal 64-bit Windows installation contains this file:
 
@@ -139,12 +173,30 @@ default location if it is missing. If it was intentionally installed elsewhere,
 add its `bin` folder to the Windows `PATH`, close the existing Command Prompt,
 and rerun the FullVision installer from a new window.
 
+### Confirm that macOS can find it
+
+The normal macOS installation contains this file:
+
+```text
+/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI
+```
+
+After installation, return to the open Mac installer and press Return. It
+should print **Found STM32CubeProgrammer** followed by the path above. If it
+does not, reinstall STM32CubeProgrammer using ST's default location and run
+`install-macos.command` again.
+
 ### CH340G and driver clarification
 
 The FullVision board uploads through a CH340G-style USB-to-serial connection.
 Open **Windows Device Manager > Ports (COM & LPT)** and confirm that connecting
 the board creates a COM port. If no port appears, resolve the CH340G driver,
 USB-cable, USB-port, or board-power issue before trying Arduino again.
+
+On macOS, check **Arduino IDE > Tools > Port**. A CH340G adapter commonly
+appears with a name beginning `/dev/cu.usbserial` or `/dev/cu.wchusbserial`.
+If no new port appears when the board is connected, try a known data-capable
+USB cable and another USB port before installing any additional driver.
 
 The STM32CubeProgrammer **USB DFU** and **ST-LINK** drivers are not required for
 this CH340G/UART upload method. They are only needed when using their respective
@@ -178,9 +230,9 @@ remain installed beside FullVision 1.5.0:
 - Updating the official core does not update FullVision.
 - Uninstalling FullVision does not uninstall the official core.
 
-The release also includes `restore-official-windows.bat`, which removes only
-the FullVision package. Despite the legacy filename, it does not modify the
-official STM32duino installation.
+The release also includes `restore-official-windows.bat` for Windows and
+`remove-fullvision-macos.command` for macOS. Each removes only the FullVision
+package and does not modify the official STM32duino installation.
 
 ## Uploading through USB-to-serial
 
@@ -190,7 +242,7 @@ is:
 
 1. Set or hold BOOT0 high.
 2. Reset or power-cycle the controller.
-3. Confirm that the correct COM port is selected.
+3. Confirm that the correct COM or macOS serial port is selected.
 4. Start the upload.
 5. Return BOOT0 low and reset the controller to run the uploaded program.
 
